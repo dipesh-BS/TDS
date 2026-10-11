@@ -1,0 +1,25 @@
+Download . This file has 2-columns:
+
+studentId: A unique identifier for each student, e.g. 1, 2, 3, ...
+class: The class (including section) of the student, e.g. 1A, 1B, ... 12A, 12B, ... 12Z
+Write a FastAPI server that serves this data. For example, /api should return all students data (in the same row and column order as the CSV file) as a JSON like this:
+
+{
+  "students": [
+    {
+      "studentId": 1,
+      "class": "1A"
+    },
+    {
+      "studentId": 2,
+      "class": "1B"
+    }, ...
+  ]
+}
+If the URL has a query parameter class, it should return only students in those classes. For example, /api?class=1A should return only students in class 1A. /api?class=1A&class=1B should return only students in class 1A and 1B. There may be any number of classes specified. Return students in the same order as they appear in the CSV file (not the order of the classes).
+
+Make sure you enable CORS to allow GET requests from any origin.
+
+What is the API URL endpoint for FastAPI? It might look like: http://127.0.0.1:8000/api
+Error: At root: Array length mismatch
+We'll check by sending a request to this URL with ?class=... added and check if the response matches the data.
